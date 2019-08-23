@@ -1,0 +1,125 @@
+﻿@using Site.Models
+@model List<ComicMarvel>
+
+@{
+    ViewBag.Title = "Marvel | Comics Character";
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        function votar(id, name) {
+            $.ajax({
+                url: '/Comic/Like?id=' + id + "&name=" + name.replace("#", "*"),
+                type: 'POST',
+                data: { },
+                error: function (jqXHR, textStatus, errorThrown) {
+                     alert('Não foi possível computar seu voto!');
+                },
+                success: function (data, textStatus, jqXHR) {
+                    alert('Seu Voto foi computado com sucesso!');
+                }
+            });
+        }
+    </script>
+}
+
+<section class="header1 cid-rzMLm2OdkP" id="header16-12">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-10 align-center">
+                <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">
+                    @(@ViewBag.Character.Name == null ? "Não foi possível carregar as informações do personagem!" : ViewBag.Character.Name)
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+@if (@ViewBag.Character.Name != null)
+{
+    <section class="tabs4 cid-rzMJdRHxL7" id="tabs4-z">
+        <div class="container">
+            <div class="media-container-row mt-5 pt-3">
+                <div class="mbr-figure" style="width: 59%;">
+                    <img src="@ViewBag.Character.Thumbnail">
+                </div>
+                <div class="tabs-container">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link mbr-fonts-style show active display-7" role="tab" data-toggle="tab" href="#tabs4-z_tab0" aria-selected="true">
+                                Descriçao
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mbr-fonts-style show active display-7" role="tab" data-toggle="tab" href="#tabs4-z_tab1" aria-selected="true">
+                                Data Modificação
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab1" class="tab-pane in active" role="tabpanel">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="mbr-text py-5 mbr-fonts-style display-7">
+                                        @(ViewBag.Character.Description == "" ? "Nenhuma descrição encontrada!" : ViewBag.Character.Description)
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab2" class="tab-pane" role="tabpanel">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="mbr-text py-5 mbr-fonts-style display-7">
+                                        @(ViewBag.Character.Modified.ToString("dd/MM/yyyy"))
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+@if (Model.Count > 0)
+{
+    <section class="header1 cid-rzMLiDUg6p" id="header16-11">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-md-10 align-center">
+                    <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">
+                        Quadrinhos
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+<section class="mbr-gallery mbr-slider-carousel cid-rzUK8z16YO" id="gallery1-16">
+    <div class="container">
+        <div class="mbr-gallery-row">
+            <div class="mbr-gallery-layout-default">
+                @foreach (var item in Model)
+                {
+                    <a onclick="votar(@item.Id, '@item.Title')">
+                        <div class="mbr-gallery-item mbr-gallery-item--p1">
+                            <div>
+                                <img src="@item.Thumbnail" alt="" title="">
+                                <span class="mbr-gallery-title mbr-fonts-style">
+                                    @item.Title
+                                </span>
+                                <span class="icon-focus">
+                                    <p class="mbr-text mb-0 mbr-fonts-style display-7" style="margin-left:-12px;">
+                                        Votar!
+                                    </p>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</section>

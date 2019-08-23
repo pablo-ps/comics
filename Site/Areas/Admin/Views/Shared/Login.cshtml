@@ -1,0 +1,148 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Marvel | Comics</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <link rel="shortcut icon" href="~/Content/assets/images/logo.ico" type="image/x-icon">
+
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="~/Content/AdminLTE/css/AdminLTE.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/pace/pace.min.css" rel="stylesheet" />
+
+    <style type="text/css">
+        .login-page {
+            height: 100%;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+        }
+
+        .form-control-feedback {
+            line-height: 44px !important;
+        }
+
+        .login-box-aux {
+            margin-top: 5%;
+        }
+
+        .card-container.card {
+            max-width: 350px;
+            padding: 40px 40px;
+        }
+
+        .btn {
+            font-weight: 700;
+            height: 36px;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .card {
+            background-color: #F7F7F7;
+            padding: 20px 25px 30px;
+            margin: 0 auto 25px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-name-card {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .form-signin #inputEmail, .form-signin #inputPassword {
+            direction: ltr;
+            height: 44px;
+            font-size: 16px;
+        }
+
+        .form-signin input[type=email], .form-signin input[type=password], .form-signin input[type=text], .form-signin button {
+            width: 100%;
+            display: block;
+            margin-bottom: 10px;
+            z-index: 1;
+            position: relative;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .form-signin .form-control:focus {
+            border-color: rgb(104, 145, 162);
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+        }
+
+        .btn.btn-signin {
+            background-color: rgb(104, 145, 162);
+            padding: 0px;
+            font-weight: 700;
+            font-size: 14px;
+            height: 36px;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            border: none;
+            -o-transition: all 0.218s;
+            -moz-transition: all 0.218s;
+            -webkit-transition: all 0.218s;
+            transition: all 0.218s;
+        }
+
+            .btn.btn-signin:hover, .btn.btn-signin:active, .btn.btn-signin:focus {
+                background-color: rgb(12, 97, 33);
+            }
+    </style>
+</head>
+<body class="hold-transition login-page skin-green">
+    <div class="login-box-aux">
+        <div class="login-logo">
+            <a href="https://www.marvel.com/" target="_blank" class="logo">
+                <span class="logo-lg;" style="color:white;width:">
+                    <b>Marvel | Comics</b>
+                </span>
+            </a>
+        </div>
+        <div class="container">
+            <div class="card card-container">
+                <p id="profile-name" class="profile-name-card">Faça login para iniciar sua sessão</p>
+                <form class="form-signin" action="/Admin/Shared/CheckLogin" method="post">
+                    <div class="form-group has-feedback">
+                        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="E-mail" required autofocus />
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Senha" required />
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Content/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    <script data-pace-options='{ "ajax": false }' src="~/Content/plugins/pace/pace.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ajaxStart(function () { Pace.restart(); });
+    </script>
+</body>
+</html>

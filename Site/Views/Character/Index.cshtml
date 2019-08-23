@@ -1,0 +1,85 @@
+﻿@using Site.Models
+@model List<CharacterMarvel>
+
+@{
+    ViewBag.Title = "Marvel | Characters";
+}
+
+@section Scripts{
+    <script src="~/Content/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="~/Content/plugins/datatables/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+        function searchCharacters() {
+            $('#form-search').submit();
+        }
+    </script>
+}
+
+<section class="header1 cid-rzMBzvAZpl" id="header16-y">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-10 align-center">
+                <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">Personagens</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mbr-section form3 cid-rzMvC4pyNR" id="form3-t">
+    <div class="container">
+        <div class="row py-2 justify-content-center">
+            <div class="col-12 col-lg-6  col-md-8 " data-form-type="formoid">
+                <form class="mbr-form form-with-styler" id="form-search">
+                    <div class="row">
+                    </div>
+                    <div class="dragArea row">
+                        <div class="form-group col" data-for="email">
+                            <input type="text" name="text" data-form-field="text" class="form-control display-7" id="txtSearch">
+                        </div>
+                        <div class="col-auto input-group-btn">
+                            <button type="submit" class="btn btn-primary display-4" onclick="searchCharacters()">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        @if (Model.Count == 0)
+        {
+            <div class="row justify-content-center">
+                <div class="title col-12 col-lg-8">
+                    <h3 class="mbr-section-subtitle align-center pb-5 mbr-light mbr-fonts-style display-5">
+                        Personagem não encontrado!
+                    </h3>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+<section class="mbr-gallery mbr-slider-carousel cid-rzUK8z16YO" id="gallery1-16">
+    <div class="container">
+        <div class="mbr-gallery-row">
+            <div class="mbr-gallery-layout-default">
+                @foreach (var item in Model)
+                {
+                    <a href="/Comic/Index?id=@item.Id">
+                        <div class="mbr-gallery-item mbr-gallery-item--p1">
+                            <div>
+                                <img src="@item.Thumbnail" alt="" title="">
+                                <span class="mbr-gallery-title mbr-fonts-style">
+                                    @item.Name
+                                </span>
+                                <span class="icon-focus">
+                                    <p class="mbr-text mb-0 mbr-fonts-style display-7" style="margin-left:-60px;">
+                                        Visualizar Quadrinho!
+                                    </p>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</section>

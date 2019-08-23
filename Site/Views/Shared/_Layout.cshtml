@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <meta name="author" content="pablops" />
+
+    <title>@ViewBag.Title</title>
+
+    <link rel="shortcut icon" href="~/Content/assets/images/logo.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;subset=latin">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900">
+    <link rel="stylesheet" href="~/Content/assets/web/assets/mobirise-icons/mobirise-icons.css">
+    <link rel="stylesheet" href="~/Content/assets/tether/tether.min.css">
+    <link rel="stylesheet" href="~/Content/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/assets/bootstrap/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="~/Content/assets/bootstrap/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="~/Content/assets/socicon/css/styles.css">
+    <link rel="stylesheet" href="~/Content/assets/dropdown/css/style.css">
+    <link rel="stylesheet" href="~/Content/assets/theme/css/style.css">
+    <link rel="stylesheet" href="~/Content/assets/mobirise/css/mbr-additional.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/assets/gallery/style.css">
+
+    @RenderSection("Styles", false)
+</head>
+<body>
+    <section class="menu cid-rzIwe5BsCv" once="menu" id="menu1-0">
+        <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="menu-logo">
+                <div class="navbar-brand">
+                    <span class="navbar-caption-wrap">
+                        <a class="navbar-caption text-white display-4" href="/Home/Index">MARVEL | Comics</a>
+                    </span>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="navbar-buttons mbr-section-btn">
+                    <a class="btn btn-sm btn-primary display-4" href="/Admin/Shared/Login" target="_blank">
+                        <span class="mbri-lock mbr-iconfont mbr-iconfont-btn"></span>
+                        Login
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <section once="footers" class="cid-rzIxSiBY3O" id="footer6-1">
+        <div class="container">
+            <div class="media-container-row align-center mbr-white">
+                <div class="col-12"></div>
+            </div>
+        </div>
+    </section>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <section class="cid-rzJ7zYKhNJ" id="social-buttons1-e">
+        <div class="container">
+            <div class="media-container-row">
+                <div class="col-md-8 align-center">
+                    <h2 class="pb-3 mbr-section-title mbr-fonts-style display-7">
+                        <br><br>
+                    </h2>
+                    <div>
+                        <div class="mbr-social-likes" data-counters="false"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="~/Content/assets/web/assets/jquery/jquery.min.js"></script>
+    <script src="~/Content/assets/popper/popper.min.js"></script>
+    <script src="~/Content/assets/tether/tether.min.js"></script>
+    <script src="~/Content/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/assets/smoothscroll/smooth-scroll.js"></script>
+    <script src="~/Content/assets/touchswipe/jquery.touch-swipe.min.js"></script>
+    <script src="~/Content/assets/ytplayer/jquery.mb.ytplayer.min.js"></script>
+    <script src="~/Content/assets/vimeoplayer/jquery.mb.vimeo_player.js"></script>
+    <script src="~/Content/assets/sociallikes/social-likes.js"></script>
+    <script src="~/Content/assets/dropdown/js/script.min.js"></script>
+    <script src="~/Content/assets/theme/js/script.js"></script>
+    <script src="~/Content/assets/masonry/masonry.pkgd.min.js"></script>
+    <script src="~/Content/assets/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="~/Content/assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js"></script>
+    <script src="~/Content/assets/slidervideo/script.js"></script>
+    <script src="~/Content/assets/gallery/player.min.js"></script>
+    <script src="~/Content/assets/gallery/script.js"></script>
+
+    @RenderSection("Scripts", false)
+
+</body>
+</html>

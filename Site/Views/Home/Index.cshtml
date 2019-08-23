@@ -1,0 +1,66 @@
+﻿@using System.Linq;
+@using Site.Areas.Admin.Models;
+@{
+    ViewBag.Title = "Marvel | Comics";
+}
+
+<section class="header6 cid-rzIyEMWJ2J" data-bg-video="https://www.youtube.com/watch?v=FJRpW0g5GwU" id="header6-6">
+    <div class="mbr-overlay" style="opacity: 0.8; background-color: rgb(70, 80, 82);"></div>
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="mbr-white col-md-10">
+                <h1 class="mbr-section-title align-center mbr-bold pb-3 mbr-fonts-style display-1">
+                    MARVEL | Comics
+                </h1>
+                <p class="mbr-text align-center pb-3 mbr-fonts-style display-5">
+                    Vote nos melhores quadrinhos dos seus heróis favoritos da Marvel!
+                    <br>
+                </p>
+                <div class="mbr-section-btn align-center">
+                    <a class="btn btn-md btn-primary display-4" href="/Character/Index">Vote Aqui!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mbr-arrow hidden-sm-down" aria-hidden="true">
+        <a href="#next">
+            <i class="mbri-down mbr-iconfont"></i>
+        </a>
+    </div>
+</section>
+
+<section class="progress-bars1 cid-rzNTryaK4g" id="progress-bars1-13">
+    <div class="container">
+        <h2 class="mbr-section-title pb-2 align-center mbr-fonts-style display-2">
+            Melhores Quadrinhos
+        </h2>
+        @if (ViewBag.ComicPorcents.Count > 0)
+        {
+            for (int i = 0; i < ViewBag.ComicPorcents.Count; i++)
+            {
+                <div class="progress_elements">
+                    <div class="progress1 pb-5">
+                        <div class="title-wrap">
+                            <div class="progressbar-title mbr-fonts-style display-7">
+                                <p>
+                                    @ViewBag.ComicPorcents[i].Name
+                                </p>
+                            </div>
+                            <div class="progress_value mbr-fonts-style display-7">
+                                <span>@ViewBag.ComicPorcents[i].PorcentLikes%</span>
+                            </div>
+                        </div>
+                        <progress class="progress progress-primary" max="100" value=@Convert.ToInt32(ViewBag.ComicPorcents[i].PorcentLikes)>
+                        </progress>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <h3 class="mbr-section-subtitle align-center pb-5 mbr-light mbr-fonts-style display-5">
+                Nenhum voto computado!
+            </h3>
+        }
+    </div>
+</section>

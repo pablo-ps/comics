@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+    <title>@ViewBag.Title</title>
+
+    <link rel="shortcut icon" href="~/Content/assets/images/logo.ico" type="image/x-icon">
+
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/Content/assets/et-line-font-plugin/style.css">
+    <link href="~/Content/AdminLTE/css/AdminLTE.min.css" rel="stylesheet" />
+    <link href="~/Content/AdminLTE/css/skins/skin-green.min.css" rel="stylesheet" />
+    <link href="~/Content/AdminLTE/css/skins/skin-red.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/pace/pace.min.css" rel="stylesheet" />
+
+    @RenderSection("Styles", false)
+</head>
+<body class="hold-transition skin-red sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <a href="https://www.marvel.com/" target="_blank" class="logo">
+                <span class="logo-mini">
+                    <b>M</b>
+                </span>
+                <span class="logo-lg">
+                    <b>MARVEL</b>
+                </span>
+            </a>
+            <nav class="navbar navbar-static-top">
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li id="adblock-menu" class="dropdown notifications-menu hide">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-warning"></i> Desabilite o AdBlock, e aperte F5!
+                            </a>
+                        </li>
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="~/Content/images/user-default.png" class="user-image" alt="Admin" />
+                                <span class="hidden-xs">Admin</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="user-header">
+                                    <img src="~/Content/images/user-default.png" class="img-circle" alt="Admin" />
+                                    <p>
+                                        Admin
+                                        <small>@DateTime.Now.ToString("dd/MM/yyyy")</small>
+                                    </p>
+                                </li>
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat" data-toggle="modal" data-target="#password-modal">Alterar a senha</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="~/Admin/Shared/Logout" class="btn btn-default btn-flat">Sair</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <ul class="sidebar-menu">
+                    <li class="@(Request.Url.AbsolutePath.Contains("/Admin/Comics") ? "active" : "")">
+                        <a href="~/Admin/Comics"><i class="fa fa-book"></i> <span>Quadrinhos</span></a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                v1.0
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal Password -->
+    <div class="modal fade" id="password-modal" tabindex="-1" role="dialog" aria-labelledby="password-modal-label">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="password-modal-label">Alteração de senha</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="current-password">Senha atual</label>
+                        <input type="password" class="form-control" id="current-password" placeholder="informe a senha atual" />
+                    </div>
+                    <div class="form-group">
+                        <label for="new-password">Nova senha</label>
+                        <input type="password" class="form-control" id="new-password" placeholder="informe a nova senha" />
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-new-password">Confirmar nova senha</label>
+                        <input type="password" class="form-control" id="confirm-new-password" placeholder="confirme a nova senha" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-flat" onclick="changePassword()">Alterar!</button>
+                    <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Content/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="~/Content/plugins/fastclick/fastclick.min.js"></script>
+    <script src="~/Content/AdminLTE/js/app.min.js"></script>
+    <script src="~/Content/plugins/lodash.min.js"></script>
+    <script src="~/Content/plugins/fuckadblock.js"></script>
+    <script data-pace-options='{ "ajax": false }' src="~/Content/plugins/pace/pace.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ajaxStart(function () { Pace.restart(); });
+
+        function changePassword() {
+            var currentPassword = $('#current-password').val();
+            var newPassword = $('#new-password').val();
+            var confirmNewPassword = $('#confirm-new-password').val();
+            if (_.isEmpty(currentPassword) || _.isEmpty(newPassword) || _.isEmpty(confirmNewPassword))
+                return;
+            $.ajax({
+                url: '/Admin/Shared/ChangePassword',
+                type: 'POST',
+                data: {
+                    currentPassword: currentPassword,
+                    newPassword: newPassword,
+                    confirmNewPassword: confirmNewPassword
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert(data.msg);
+                },
+                success: function (data, textStatus, jqXHR) {
+                    if (data.success) {
+                        $('#password-modal').modal('hide');
+                    }
+                    else if (!data.success && data.msg != '') {
+                        alert(data.msg);
+                    }
+                }
+            });
+        }
+
+        function adBlockDetected() {
+            $('body').removeClass('skin-red');
+            $('body').addClass('skin-green');
+            $('#adblock-menu').removeClass('hide');
+        }
+        function adBlockNotDetected() {
+            $('body').removeClass('skin-green');
+            $('body').addClass('skin-red');
+            $('#adblock-menu').addClass('hide');
+        }
+
+        if (typeof fuckAdBlock === 'undefined') {
+            adBlockDetected();
+        } else {
+            fuckAdBlock.setOption({ debug: false });
+            fuckAdBlock.onDetected(adBlockDetected).onNotDetected(adBlockNotDetected);
+        }
+    </script>
+
+    @RenderSection("Scripts", false)
+</body>
+</html>
