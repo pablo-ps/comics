@@ -1,20 +1,20 @@
-#Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+#Introdução 
+Projeto com objetivo de levantar quais o melhores quadrinhos da Marvel.
 
-#Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+#Informações necessárias
+1.	Se cadastre no site https://developer.marvel.com/documentation/getting_started e adquira as credenciais necessárias.
+2.  Serão necessárias as informações public key e private key
 
-#Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+#Criar banco de dados
+1.	Utilizar spcrip DbScript.sql
+2.	Rodar scrit de criação do banco de dados
+3.  Inserir public e private Key da Marvel no scrit de insert de confis(linha 14)
+3.1 Utilizar sempre id 1 no insert de confis 
+3.	Rodar scrit de criação das tabelas e inserts
 
-#Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+#Acesso área administrativa
+1. Usuário padrão:  admin@comics.com
+2. Senha: abc123##
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://www.visualstudio.com/en-us/docs/git/create-a-readme). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+#Material de apoio 
+1. https://developer.marvel.com/docs
